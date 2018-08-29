@@ -30,4 +30,10 @@ const Stream = {
     compose
 };
 
+//S.FromArray().map(x => x*2).filter(x => (x%2 == 0))
+
 window.S = Stream;
+
+S.scan(S.merge(S.FromEvent(btn1, 'click'), S.FromEvent(btn2, 'click'))).subscribe(x => {
+    txt.innerHTML = x;
+});
