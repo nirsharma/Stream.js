@@ -1,5 +1,3 @@
-import { curry } from '../utils.js';
-
 
 function fromArray(arr) {
     return {
@@ -10,4 +8,4 @@ function fromArray(arr) {
     }
 }
 
-export default curry(fromArray);
+export default fromArray;
