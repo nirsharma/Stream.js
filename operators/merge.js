@@ -8,19 +8,20 @@ import { curry } from '../utils.js';
 function merge(stream1, stream2) {
     var flag = false;
     return {
-        subscribe : function(next, complete) {
+        subscribe : function(next, complete, error) {
             stream1.subscribe(item => {
                 next(item);
             }, () => {
-                if(flag) complete();
+                if(flag) complete && complete();
                 else flag = true;
-            })
+            }, () => error && error())
+
             stream2.subscribe(item => {
-            next(item);
+                next(item);
             }, () => {
-                if(flag) complete();
+                if(flag) complete && complete();
                 else flag = true;
-            })
+            }, () => error && error())
         }
     }
 }

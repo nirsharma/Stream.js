@@ -12,7 +12,7 @@ function map(mapper, stream) {
             }, () => {
                 complete && complete();
             }, () => {
-                error();
+                error && error();
             })
         }
     }

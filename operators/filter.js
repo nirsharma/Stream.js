@@ -13,7 +13,7 @@ function filter(filterFn, stream) {
             }, () => {
                 complete && complete();
             }, () => {
-                error();
+                error && error();
             })
         }
     }

@@ -17,25 +17,33 @@ function zip(stream1, stream2) {
     };
     return {
         subscribe: function (next, complete, error) {
-            stream1.subscribe(item => {
-                v1.push(item);
-                send(next);
-            }, () => {
-                if (canReturn && !v1.length && !v2.length) complete();
-                else canReturn = true;
-            }, () => {
-                error();
-            });
-            stream2.subscribe(item => {
-                v2.push(item);
-                send(next);
-            }, () => {
-                if (canReturn && !v1.length && !v2.length) complete();
-                else canReturn = true;
-            }, () => {
-                error();
-            });
-
+            stream1.subscribe(
+                (item) => {
+                    v1.push(item);
+                    send(next);
+                },
+                () => {
+                    if (canReturn && !v1.length && !v2.length) 
+                        complete && complete();
+                    else canReturn = true;
+                },
+                () => {
+                    error && error();
+                }
+            );
+            stream2.subscribe(
+                (item) => {
+                    v2.push(item);
+                    send(next);
+                },
+                () => {
+                    if (canReturn && !v1.length && !v2.length) complete && complete();
+                    else canReturn = true;
+                },
+                () => {
+                    error && error();
+                }
+            );
         }
     }
 }
