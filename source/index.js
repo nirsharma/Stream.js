@@ -17,11 +17,11 @@ function sourceWrapper(source) {
 sourceWrapper.prototype = operators;
 
 export default {
-    FromArray : (arr) => (new sourceWrapper(fromArray(arr))),
-    FromDomEvent : (el, evt) => (new sourceWrapper(fromDomEvent(el, evt))),
-    FromInterval : (time) => (new sourceWrapper(fromInterval(time))),
-    FromPromise : (pro) => (new sourceWrapper(fromPromise(pro))),
-    FromRange : (start, end) => (new sourceWrapper(fromRange(start, end))),
-    Create : (func) => (new sourceWrapper(Create(func)))
+    FromArray: (arr) => (new sourceWrapper(fromArray(arr))),
+    FromDomEvent: (el, evt) => (new sourceWrapper(fromDomEvent(el, evt))),
+    FromInterval: (time) => (new sourceWrapper(fromInterval(time))),
+    FromPromise: (pro) => (new sourceWrapper(fromPromise(pro))),
+    FromRange: (start, end) => (new sourceWrapper(fromRange(start, end))),
+    Create: (func) => (new sourceWrapper(Create(func)))
 };
 

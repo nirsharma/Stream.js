@@ -16,11 +16,25 @@ function operatorWrapper(operator) {
 }
 
 export default {
-    map :   function (mapper) { return operatorWrapper.call(this, map(mapper)) },
-    filter: function (func) { return operatorWrapper.call(this, filter(func)) },
-    merge: function (stream) { return operatorWrapper.call(this, merge(stream)) },
-    scan: function (func, base) { return operatorWrapper.call(this, scan(func, base)) },
-    startsWith : function (arr) { return operatorWrapper.call(this, startsWith(arr)) },
-    takeLatest : function (stream) { return operatorWrapper.call(this, takeLatest(stream)) },
-    zip : function (stream) { return operatorWrapper.call(this, zip(stream)) }
+    map: function (mapper) {
+        return operatorWrapper.call(this, map(mapper))
+    },
+    filter: function (func) {
+        return operatorWrapper.call(this, filter(func))
+    },
+    merge: function (stream) {
+        return operatorWrapper.call(this, merge(stream))
+    },
+    scan: function (func, base) {
+        return operatorWrapper.call(this, scan(func, base))
+    },
+    startsWith: function (arr) {
+        return operatorWrapper.call(this, startsWith(arr))
+    },
+    takeLatest: function (stream) {
+        return operatorWrapper.call(this, takeLatest(stream))
+    },
+    zip: function (stream) {
+        return operatorWrapper.call(this, zip(stream))
+    }
 };
