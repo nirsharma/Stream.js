@@ -5,6 +5,8 @@ import scan from './scan.js';
 import startsWith from './startsWith.js';
 import takeLatest from './takeLatest.js';
 import zip from './zip.js';
+import take from './take.js';
+import skip from './skip.js';
 
 
 function operatorWrapper(operator) {
@@ -36,5 +38,11 @@ export default {
     },
     zip: function (stream) {
         return operatorWrapper.call(this, zip(stream))
+    },
+    skip: function (num) {
+        return operatorWrapper.call(this, skip(num))
+    },
+    take: function (num) {
+        return operatorWrapper.call(this, take(num))
     }
 };
